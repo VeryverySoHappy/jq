@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="css/header_.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script language="javascript" type="text/javascript">
+
+    $(document).ready(function(){
+      // $('header').append(bg)
+
+      $('.gnb > ul > li > a').on ({
+        mouseenter:function(){
+          $(this).css({
+            color:'#5f83b3'
+          })
+          $(this).parent().find('.subwrap').css({
+            backgroundColor:'#5f83b3'
+          })
+          $('.iconwrap').hide();
+          $()
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header id="top">
+      <aside class="to_top">
+        <div class="center">
+          <ul class="left_li">
+            <li>본문바로가기</li>
+          </ul>
+          <ul class="right_li">
+            <li>홈</li>
+            <li>로그인</li>
+            <li>회원가입</li>
+            <li>민원사무서식</li>
+            <li>사이트맵</li>
+            <li>LANGUAGE</li>
+          </ul>
+        </div>
+      </aside>
+      <nav>
+        <div class="header_logo">
+          <h1><img src="images/top_logo.jpg" alt="동작구보건소로고"></h1>
+        </div>
+        <div class="gnb">
+          <h2 class="skip">주메뉴</h2>
+          <ul>
+            <li>
+              <a href="#">보건소 소개</a>
+              <div id="on iconwrap">
+                <span>보건소 소개</span>
+                <p><img src="images/introduce.png" alt=""></p>
+              </div>
+
+              <ul class="submenu01 subwrap">
+                <li><a href="#">인사말</a></li>
+                <li><a href="#">조직 및 업무안내</a></li>
+                <li><a href="#">위생행정서비스현장</a></li>
+                <li><a href="#">찾아오시는 길</a></li>
+                <li><a href="#">사당분소</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="">진로/상담</a>
+            
+              <div class="iconwrap">
+                <span>진로/상담</span>
+                <p><img src="images/treatment.png" alt="보건소소개"></p>
+              </div>
+              <ul class="submenu03 subwrap">
+                <li><a href="#">진료안내</a></li>
+                <li><a href="#">예방접종</a></li>
+                <li><a href="#">건강검진</a></li>
+                <li><a href="#">보건상담</a></li>
+              </ul>
+          </li>
+
+          <li>
+            <a href="#">식품*공중 위생</a>
+            <div class="iconwrap">
+              <span>식품*공중 위생</span>
+              <p><img src="images/pill.png" alt="보건소소개"></p>
+            </div>
+            <ul>
+              <li><a href="#">식품위생</a></li>
+              <li><a href="#">공중위생</a></li>
+              <li><a href="#">건강기능식품</a></li>
+              <li><a href="#">식품안전</a></li>
+              <li><a href="#">모범음식점</a></li>
+              <li><a href="#">축산물,동물 위생</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="">보건민원</a>
+            <div class="iconwrap">
+              <span>보건민원</span>
+              <p><img src="images/complaint.png" alt="보건민원"></p>
+            </div>
+            <ul>
+              <li><a href="#">신고마당</a></li>
+              <li><a href="#">입찰계약정보</a></li>
+              <li><a href="#">민원사무서식</a></li>
+              <li><a href="#">인터넷자율점검</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="#">건강정보</a>
+            <div class="iconwrap">
+              <span>건강정보</span>
+              <p><img src="images/info.png" alt="건강정보"></p>
+            </div>
+            <ul class="submenu06 submenu">
+              <li><a href="#">알림마당</a></li>
+              <li><a href="#">의약품정보</a></li>
+              <li><a href="#">의료기관</a></li>
+              <li><a href="#">소독업소</a></li>
+              <li><a href="#">영양플러스</a></li>
+              <li><a href="#">비만도진단</a></li>
+            </ul>
+          </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  </div>
+</body>
+</html>

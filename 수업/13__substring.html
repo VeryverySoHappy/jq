@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <!-- 무조건 cdn 파일은 뮈에 -->
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  <style>
+    body, div, h3, ul, li, a, img, span, p {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+      color: #222;
+    }
+    img {
+      border: 0 none;
+    }
+    body {
+      font-size: 12px;
+      color: #222;
+      font-family: 'Franklin Gothic Medium';
+      letter-spacing: -0.05em;
+    }
+
+  </style>
+  <script>
+    $(document).ready(function(){
+      $('li:lt(1)').css('background-color','green');
+      // 인덱스 1보다 작은 것은 
+      $('li:gt(1)').css('background-color','yellow');
+      // 인덱스가 1보다 큰 것은 
+      $('.btn1').on('click',function(){
+        var str='안녕하세요';
+        var res=str.substring(2);
+        console.log(res)//하세요 
+      })
+      
+      $('.btn2').on('click',function(){
+        var str='안녕하세요';
+        var res=str.substring(1,3);
+        console.log(res)//녕하
+
+      })
+      
+      $('.btn3').on('click',function(){
+        var str='안녕하세요';
+        var txt=str.length;
+        console.log(txt)//5
+        var res=str.substring(txt-2);
+        // 5-2
+        console.log(res)//세요
+      })
+      
+    })
+  </script>
+</head>
+<body>
+    <ul>
+      <li>index0</li>
+      <li>index1</li>
+      <li>index2</li>
+    </ul>
+    <button class="btn1">substring</button>
+    <button class="btn2">substring</button>
+    <button class="btn3">substring</button>
+</body>
+</html>

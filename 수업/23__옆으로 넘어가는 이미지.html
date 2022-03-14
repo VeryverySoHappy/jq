@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <style>
+    body, div, a, img, span {
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      text-decoration: none;
+    }
+    img {
+      border: 0 none;
+      /* 0 또는 0 none 를 사용 */
+      /* 0만 쓰면 안 됌 */
+    }
+
+    .event {
+      width: 236px;
+      position: relative;
+      margin: 50px auto;
+      height: 340px;
+      /* 이미지 높이 + 버튼 놔둘 공간 */
+    }
+    .eventList {
+      position: relative;
+      width: 236px;
+      height: 315px;
+      overflow: hidden;
+      padding-top: 24px;
+    }
+    .eventList .imageType {
+      position: absolute;
+      /* 가장 마지막 사진이 위로 올라옴 */
+      width: 236px;
+      height: 315px;
+    }
+
+    .control {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+    }
+    .control * {
+      vertical-align: middle;
+      /* 버튼들 한줄로 나열 */
+    }
+    .move {
+      margin-right: 20px;
+      float: left;
+    }
+    .move a {
+      background: url(../ex60/bg_btn_page02_140716.png) no-repeat -13px -189px;
+      width: 10px;
+      height: 10px;
+      margin-right: 3px;
+      /* 글자 숨김 start*/
+      text-indent: -999em;
+      display: inline-block;
+      /* 글자 숨김 end*/
+    }
+    .move a.on {
+      background: url(../ex60/bg_btn_page02_140716.png) no-repeat -1px -189px;
+    }
+    .pause {
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+      background: url(../ex60/bg_btn_page02_140716.png) no-repeat 0 -171px ;
+    }
+    .pause span {
+      display: inline-block;
+      text-indent: -999em;
+    }
+
+    .play {
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+      background: url(../ex60/bg_btn_page02_140716.png) no-repeat 0 -155px;
+    }
+    .play span{
+      display: inline-block;
+      text-indent: -999em;
+    }
+  </style>
+  <script>
+    var sid;
+    function cycleMenu(){
+      $('.eventList a:gt(0)').hide();
+      /* 인덱스 값이 0보다 큰 것은 숨겨 */
+      $('.move a').on('click',function(e){
+        e.preventDefault();
+
+        // console.log('1')   콘솔창에 1뜸
+        // on인지 확인 -> 함수(버튼이미지를 변경-> 배너 이미지변경)
+        if($(this).hasClass('on')==false){
+          // on이라는 클래스가 없다면
+          if($('.stopBtn').hasClass('pause')==true){
+            clearInterval(sid);
+            sid=setInterval(cycleMenuAutoPlay,2000)
+          }
+          changeItem($(this).index())
+          // changeItem에 클릭한 버튼의 인덱스를 넘겨줘
+        }
+      })
+
+      $('.stopBtn').on('click',function(e){
+        e.preventDefault();
+        if($(this).hasClass('pause')==true){
+          clearInterval(sid)
+          $(this).removeClass('pause');
+          $(this).addClass('play');
+        }else{
+          sid=setInterval(cycleMenuAutoPlay,2000)
+          $(this).removeClass('play');
+          $(this).addClass('pause');
+        }
+      })
+      sid=setInterval(cycleMenuAutoPlay,2000)
+      // 보통 홀수 초로 돌림 2초는 넘 빠름
+    }
+
+    function changeItem(idx){
+      // 이미지와 버튼이 변경되는것을 만들어주는 함수
+      // console.log(idx)
+      $('.move a.on').removeClass('on');
+      $('.move a:eq('+idx+')').addClass('on');
+      // a의 몇번쨰꺼에 on을 추가해
+      // 버튼의 모양이 바뀜
+
+      // 이미지 움직이는 거 start
+      var menuWidth=parseInt($('.eventList').css('width'));
+      // console.log()
+      // 236px라는 값만 필요
+      // 이미지 움직이는 거 end
+
+      // 내가 선택한거 옆으로 이동 start
+      $('.eventList a:eq('+idx+')').css({
+        'left':menuWidth+'px',
+        'display':'block'
+      })
+      // 내가 선택한거 옆으로 이동 end
+
+      $('.eventList a.on').animate({
+        'left':-menuWidth+'px'
+      },600,function(){
+        $(this).removeClass('on');
+        $(this).hide();
+      })
+      $('.eventList a:eq('+idx+')').animate({
+        'left':'0px'
+      },600, function(){
+        $(this).addClass('on')
+      })
+    }
+
+    function cycleMenuAutoPlay(){
+      // setInterval 함수 실행
+      var temp=$('.move a.on').index()+1;
+      //선택을 한 버튼
+      if(temp>$('.move a').length-1){
+        temp=0;
+      }
+      changeItem(temp)
+    }
+    $(document).ready(function(){
+      cycleMenu();
+      // 화면을 실행하자마자 cycleMenu를 호출해
+    })
+  </script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="event">
+    <div class="eventList">
+      <a href="" class="imageType on" title="">
+        <img src="../ex60/imgUrl20160629110216.png" alt="">
+      </a>
+      
+      <a href="" class="imageType" title="">
+        <img src="../ex60/imgUrl20160629110242.png" alt="">
+      </a>
+
+      <a href="" class="imageType" title="">
+        <img src="../ex60/imgUrl20160629110328.png" alt="">
+      </a>
+
+      <a href="" class="imageType" title="">
+        <img src="../ex60/imgUrl20160630110034.png" alt="">
+      </a>
+
+      <a href="" class="imageType" title="">
+        <img src="../ex60/imgUrl20160630110058.png" alt="">
+      </a>
+
+      <a href="" class="imageType" title="">
+        <img src="../ex60/imgUrl20160630110156.png" alt="">
+      </a>
+
+      <a href="" class="imageType" title="">
+        <img src="../ex60/imgUrl20160630110228.png" alt="">
+      </a>
+    </div>
+    <div class="control">
+      <div class="move">
+        <a href="" class="on">1번째 이벤트 보기</a>
+        <a href="">2번째 이벤트 보기</a>
+        <a href="">3번째 이벤트 보기</a>
+        <a href="">4번째 이벤트 보기</a>
+        <a href="">5번째 이벤트 보기</a>
+        <a href="">6번째 이벤트 보기</a>
+      </div>
+      <a href="" class="stopBtn pause"><span>일시정지</span></a>
+    </div>
+  </div>
+</body>
+</html>

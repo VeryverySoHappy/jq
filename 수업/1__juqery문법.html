@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <!-- $표시가 있으면 전부다 제이쿼리 코드    자바스크립트 x -->
+  <!--
+    jquery를 정의하거나 접근할 때   $
+    $표시 -> jquery를 사용하겠다라는 의미
+
+    -------------------Jscript 구문 -----------------
+    문법1
+    window.onload=function() {
+
+    }
+    문법2
+    function init() {
+      
+    }
+    window.onload=init;(호출)
+    
+    --------------------Jquery-----------------------------
+    문법1
+    $(document).ready(function(){
+
+    })
+
+    문법2
+    $(function(){
+
+    })
+  -->
+
+  <script>
+    $(document).ready(function(){
+      $('#test').css({
+        'color':'red',
+        'background':'green'
+      })
+      $('.test').css({
+        'color':'green',
+        'background':'red'
+      })
+      $('h3').css({
+        'color':'yellow',
+        'background':'blue'
+      })
+      $('ul > li').css({
+        'color':'yellow',
+        'border':'5px solid #000'
+      })
+    })
+  </script>
+</head>
+<body>
+  <div>
+    <h3>jquery</h3>
+    <ul>
+      <li class="test">클래스 선택자</li>
+      <li id="test">아이디 선택자</li>
+    </ul>
+  </div>
+
+  <h3>addClass/ removeClass</h3>
+  <!-- $(선택자).addClass(className) -->
+  <!-- 
+    $(선택자).addClass(index,currentClassName)
+              순서       찾아진 문서 객체의 클래스 속성 -->
+</body>
+</html>

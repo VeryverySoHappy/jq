@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.btn > a').on('click', function(e){
+      e.preventDefault();
+        $('.toggleImg').toggle()
+      })
+    })
+  </script>
+  <style>
+    body, div, ul, li, a, img, p {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      list-style-type: none;
+    }
+    a {
+      text-decoration: none;
+    }
+    img {
+      border: none;
+    }
+
+    .toggleImg {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- show(), hide(), toggle() -->
+  <!-- show(): 숨겨져 있는 요소를 노출 -->
+  <!-- hide() : 노출된 요소를 숨길 때 -->
+  <!-- toggle은 두가지 역할을 동시에 함 (show + hide)-->
+  <div class="toggle">
+    <p class="btn">
+      <a href=""><img src="../ex12/togglebtn.jpg" alt=""></a>
+    </p>
+    <div class="toggleImg">
+      <img src="../ex12/toggleimg.jpg" alt="">
+    </div>
+  </div>
+</body>
+</html>

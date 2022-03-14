@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <!-- 무조건 cdn 파일은 뮈에 -->
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  <style>
+    body, div, h3, ul, li, a, img, span, p {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+      color: #222;
+    }
+    img {
+      border: 0 none;
+    }
+    body {
+      font-size: 12px;
+      color: #222;
+      font-family: 'Franklin Gothic Medium';
+      letter-spacing: -0.05em;
+    }
+
+    .lnbEvent {
+      width: 200px;
+      margin: 50px auto;
+      position: relative;
+    }
+
+    .mainToBg{
+      background: url('../ex50/main_top.gif') no-repeat 0 0;
+    }
+    .more {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .verticalSlide{
+      /* border: 1px solid #d7d7d7; */
+      /* border-bottom: none; */
+      border-color: #d7d7d7;
+      border-width: 1px 0 0 1px;
+      border-style: solid none none solid;
+      width: 199px;
+    }
+
+    .verticalSlide li {
+      height: 31px;
+      width: 199px;
+      overflow: hidden;
+    }
+
+    .verticalSlide li:first-child {
+      height: 160px;
+    }
+    .verticalSlide li a.mainToBg {
+      background-position: 0 -253px;
+      display: block;
+      height: 23px;
+      color: #949494;
+      padding: 8px 0 0 8px;
+    }
+    .verticalSlide li.on a.mainToBg {
+      background-position: 0 -223px;
+    }
+
+    .verticalSlide li span {
+      background: url('../ex50/lnb_event_bul.gif') no-repeat 100% 0;
+      width: 189px;
+      padding-right: 10px;
+      display: block;
+    }
+
+    .verticalSlide li span a {
+      display: block;
+      border-bottom: 1px solid #d7d7d7;
+      border-right: 1px solid #d7d7d7;
+    }
+  </style>
+  <script>
+
+    function itemchange(num){
+      $('.verticalSlide li').each(function(i){
+        // 각각의 li에 접근
+        // console.log(i)
+        if(num==i){
+          $(this).addClass('on');
+          $(this).stop().animate({
+            height:'160px'
+          },500,"easeOutBounce")
+          // 제이쿼리 사이트에 잇는 효과 이름
+          $(this).find('> span').stop().animate({
+            opacity:1
+          },1000,"easeOutBounce")
+        }else {
+          $(this).removeClass('on');
+          $(this).stop().animate({
+            height:'31px'
+          },500,"easeOutBounce")
+
+          $(this).find('> span').stop().animate({
+            opacity:0.2
+          },1000,"easeOutBounce")
+        }
+      })
+    }
+
+    $(document).ready(function(){
+      $('.verticalSlide > li > a').mouseenter(function(){
+        itemchange($(this).parent().index())
+      })
+    })
+  </script>
+</head>
+<body>
+  <!-- slideUp , Down, setInterval말고 animate를 사용 -->
+  <div class="lnbEvent">
+    <h3>
+      <img src="../ex50/h3.PNG" alt="">
+    </h3>
+    <ul class="verticalSlide">
+      <li class="on">
+        <a href="" class="mainToBg">투표 잘하면 커피 공짜</a>
+        <span>
+          <a href=""><img src="../ex50/mid_left1_4_130301.jpg" alt=""></a>
+        </span>
+      </li>
+      
+      <li>
+        <a href="" class="mainToBg">신규회원 할인쿠폰 받기</a>
+        <span>
+          <a href=""><img src="../ex50/mid_left1_3_120105.jpg" alt=""></a>
+        </span>
+      </li>
+
+      <li>
+        <a href="" class="mainToBg">배송비 돌려 드려요~</a>
+        <span>
+          <a href=""><img src="../ex50/mid_left1_5_111105.jpg" alt=""></a>
+        </span>
+      </li>
+
+      <li>
+        <a href="" class="mainToBg">출첵하고 커피 받자!</a>
+        <span>
+          <a href=""><img src="../ex50/mid_left1_6_130308.jpg" alt=""></a>
+        </span>
+      </li>
+
+      <li>
+        <a href="" class="mainToBg">동반성장 우수 상품</a>
+        <span>
+          <a href=""><img src="../ex50/mid_left1_5_120104.jpg" alt=""></a>
+        </span>
+      </li>
+    </ul>
+    <p class="more"><a href="../ex50/main_btn_add.gif"></a></p>
+  </div>
+</body>
+</html>

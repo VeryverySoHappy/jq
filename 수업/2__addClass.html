@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.btn1').on('click',function(){
+        $('.gallery').removeClass().addClass('gallery gallery1')
+        // 추가를 할 때는(addClass를 쓸 때는) 누구를 추가할거야 라고 하지만 
+        // remove는 대상을 작성하지않아도 됌
+
+        // .btn1을 클릭을 했을 때,
+        // .gallery에 접근을 해서 gallery안에 있는 클래스를 다 지우고 gallery1을 추가를 해줘 
+
+        // removeClass를 하면 클래스가 다 날라가서 넣어줘야될 클래스를 addClass에 다 써주기
+        return false;
+      })
+      
+      $('.btn2').on('click',function(){
+        $('.gallery').removeClass().addClass('gallery gallery2')
+        return false;
+      })
+
+      $('.btn3').on('click',function(){
+        $('.gallery').removeClass().addClass('gallery gallery3')
+        return false;
+      })
+    })
+  </script>
+  <style>
+    body, div, ul, li, a, img {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      list-style-type: none;
+      overflow: hidden;
+    }
+    a {
+      text-decoration: none;
+    }
+    img {
+      border: none;
+    }
+    .book {
+      width: 400px;
+      margin: 50px auto;
+    }
+    ul li {
+      float: left;
+      margin: 0 10px;
+    }
+    .gallery {
+      width: 349px;
+      height: 169px;
+    }
+    .gallery.gallery1 {
+      background: url(../ex1/img01.jpg) no-repeat;
+    }
+    .gallery.gallery2 {
+      background: url(../ex1/img02.jpg) no-repeat;
+    }
+    .gallery.gallery3 {
+      background: url(../ex1/img03.jpg) no-repeat;
+    }
+  </style>
+</head>
+<body>
+  <!-- addClass  /   removeClass -->
+  <div class="book">
+    <ul>
+      <li class="btn1"><a href=""><img src="../ex1/btn01.jpg" alt=""></a></li>
+      <li class="btn2"><a href=""><img src="../ex1/btn02.jpg" alt=""></a></li>
+      <li class="btn3"><a href=""><img src="../ex1/btn03.jpg" alt=""></a></li>
+    </ul>
+    <div class="gallery"></div>
+  </div>
+</body>
+</html>

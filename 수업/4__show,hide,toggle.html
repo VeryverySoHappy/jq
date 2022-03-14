@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.btnList > .tel > a').mouseenter(function(){
+        $('.wraList').show()
+        $('.wraList > ul > li').mouseenter(function() {
+          $(this).css('background','#fff')
+        })
+        $('.wraList > ul > li').mouseleave(function() {
+          $(this).css('background', '')
+        })
+
+      })
+
+      $('.wraList').mouseleave(function(){
+        $(this).hide()
+        // $('.wraList').hide()   자기 자신
+      })
+
+    })
+    // css로 display:none, block로도 가능
+  </script>
+  <style>
+    body, div, ul, li, a, img {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      list-style-type: none;
+    }
+    a {
+      text-decoration: none;
+    }
+    img {
+      border: none;
+    }
+    .bannerwrap {
+      width: 950px;
+      margin: 50px auto;
+    }
+    .btnList li {
+      float: left;
+      width: 190px;
+    }
+    .btnList > li:nth-of-type(3) {
+      width: 190px;
+      background-color: #c6c6c6;
+      height: 50px;
+      padding-top: 12px;
+      padding-left: 18px;
+      box-sizing: border-box;
+    }
+    .btnList .wraList {
+      width: 190px;
+      display: none;
+    }
+
+    .btnList .wraList ul li {
+      line-height: 2.0;
+      background-color: #c6c6c6;
+      border-top: 1px dotted #333;
+      padding-left: 10px;
+      box-sizing: border-box;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <!-- show(), hide(), toggle() -->
+  <!-- show(): 숨겨져 있는 요소를 노출 -->
+  <!-- hide() : 노출된 요소를 숨길 때 -->
+  <!-- toggle은 두가지 역할을 동시에 함 (show + hide)-->
+  <div class="bannerwrap">
+    <ul class="btnList">
+      <li><a href=""><img src="../ex11/btn_online01.gif" alt=""></a></li>
+      <li><a href=""><img src="../ex11/btn_online02.gif" alt=""></a></li>
+      <li class="tel"><a href=""><img src="../ex11/blt_online_tel.jpg" alt=""></a>
+        <div class="wraList">
+          <ul>
+            <li>[강남]02-123-4567</li>
+            <li>[강남]02-123-4567</li>
+            <li>[강남]02-123-4567</li>
+            <li>[강남]02-123-4567</li>
+            <li>[강남]02-123-4567</li>
+            <li>[강남]02-123-4567</li>
+          </ul>
+        </div>
+      </li>
+      <li><a href=""><img src="../ex11/btn_online04.gif" alt=""></a></li>
+      <li><a href=""><img src="../ex11/btn_online05.gif" alt=""></a></li>
+    </ul>
+  </div>
+</body>
+</html>

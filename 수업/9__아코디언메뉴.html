@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <!-- 1버전이 가장 안정적 -->
+  <!-- 무조건 최신이 좋은 것은 아님 -->
+  <title>Document</title>
+  <style>
+    body, div, form, fieldset, label, legend, ul, li, p, select, input, h3, a, img, dl, dt, dd {
+      margin: 0;
+      padding: 0;
+    }
+    body, select, input {
+      font-size: 12px;
+      color: #222;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+    }
+    ul {
+      list-style: none;
+    }
+    select,
+    input {
+      vertical-align: middle;
+    }
+    a {
+      text-decoration: none;
+    }
+    img, fieldset {
+      border: none;
+    }
+    .sub_menu_wrap {
+      width: 220px;
+      margin: 50px auto;
+    }
+    li {
+      line-height: 24px;
+      background: url(../ex30/images/left_icon.gif) no-repeat 20px 10px;
+      padding-left: 30px;
+      border-bottom: 1px dotted #c3c3c3;
+    }
+    li:hover {
+      background: url(../ex30/images/left_icon_o.gif) no-repeat 20px 10px;
+    }
+  </style>
+  <script>
+    $(document).ready(function(){
+      $('.title:eq(0)').addClass('on');
+      // 첫번째꺼에 on을 붙여줘
+      $('.sub:not(:eq(0))').hide();
+      // not()   괄호안에 있는 것을 제거하고
+      // 첫번째가 아니면 숨겨줘
+      
+      // (호주, 캐나다는 접혀있음)
+      // 처음 모양 = 미국은 on이 붙여있어서 펼쳐져 있고 호주, 캐나다는 접혀있음
+
+
+      $('.title').on('click',function(){
+        if($(this).hasClass('on')==false){
+          // 내가 선택한거에 'on'이라는 클래스가 없다면
+          $('.sub').stop().slideUp(400);
+          var outImg=$('.title.on').find('img')
+          outImg.prop('src', outImg.prop('src').replace('.gif','_o.gif'))
+          // 속성에 접근해서 속성의 값을 바꿔줘라
+
+          $('.title.on').removeClass('on')
+          // 원래 on이 있던건 on을 제거하고
+          $(this).addClass('on');
+          // 클릭한거에는 on을 붙여줘라
+          var outImg=$('.title.on').find('img')
+          outImg.prop('src',outImg.prop('src').replace('_o.gif','.gif'))
+          $(this).next().stop().slideDown(400);
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<!--  지난 주에 한 것
+  show, hidden, toggle, addclass, removeclass, toggleClass, fadein, fadeout, fadetoggle,  slideup, slidedown, slidetoggle
+  remove, html, val, text, clone, append, before, prepend, after, next, prev, parent, parents, find, not, eq, index, frist-child,
+  first, last, last-child, fadeto,propm attr
+-->
+<!-- is() : 상태 확인 메서드(현재의 상태를 확인), hasclass()  : , animate(properties, duration, callback): 사용자가 원하는 형태로 애니메이션 효과를 적용시킴 -->
+<!-- setInterval, setTimeout, clearInterval, clearTimeout -->
+  <div class="sub_menu_wrap">
+    <h3>
+      <img src="../ex30/images/left_title01.gif" alt="">
+    </h3>
+    <!-- ul,li로 하기도 하고 dl로 하기도 함 -->
+    <!-- dl 너무 안 쓰지도 말구 적당히 쓰기 -->
+    <!-- 
+        ul 
+          li img 
+                ul 
+                  li a  
+    -->
+    <dl class="sub_left_navi">
+      <dt class="title"><img src="../ex30/images/left_title01_01.gif" alt=""></dt>
+      <dd class="sub">
+        <ul>
+          <li><a href="">연수원 소개</a></li>
+          <li><a href="">연수원 소개</a></li>
+          <li><a href="">연수원 소개</a></li>
+        </ul>
+      </dd>
+
+      <dt class="title"><img src="../ex30/images/left_title01_02_o.gif" alt=""></dt>
+      <dd class="sub">
+        <ul>
+          <li><a href="">연수원 소개</a></li>
+          <li><a href="">연수원 소개</a></li>
+          <li><a href="">연수원 소개</a></li>
+        </ul>
+      </dd>
+
+      <dt class="title"><img src="../ex30/images/left_title01_03_o.gif" alt=""></dt>
+      <dd class="sub">
+        <ul>
+          <li><a href="">연수원 소개</a></li>
+          <li><a href="">연수원 소개</a></li>
+          <li><a href="">연수원 소개</a></li>
+        </ul>
+      </dd>
+
+
+    </dl>
+  </div>
+</body>
+</html>

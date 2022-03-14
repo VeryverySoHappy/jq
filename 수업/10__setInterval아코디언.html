@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <!-- 1버전이 가장 안정적 -->
+  <!-- 무조건 최신이 좋은 것은 아님 -->
+  <title>Document</title>
+  <style>
+    body, div, form, fieldset, label, legend, ul, li, p, select, input, h3, a, img, dl, dt, dd {
+      margin: 0;
+      padding: 0;
+    }
+    body, select, input {
+      font-size: 12px;
+      color: #222;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+    }
+    ul {
+      list-style: none;
+    }
+    select,
+    input {
+      vertical-align: middle;
+    }
+    a {
+      text-decoration: none;
+    }
+    img,
+    h3,
+    fieldset {
+      border: none;
+    }
+    .sub_menu_wrap {
+      width: 380px;
+      margin: 50px auto;
+
+    }
+    .camlist {
+      width: 372px;
+      border: 4px solid #70a810;
+      background: url('../ex40/camList_bg.gif') repeat-y;
+      border-top: none;
+      height: 470px;
+    }
+
+    body * {
+      /* body에 있는 모든 요소를 세로 정렬 middle */
+      vertical-align: middle;
+    }
+
+    .camlist div {
+      display: none;
+    }
+
+    .camlist li:first-child div {
+      /* display: block; */
+    }
+  </style>
+  <script>
+    var num, asize;
+    function contMv(){
+      num++;
+      if(num>=asize) num=0;
+      $('.camlist>li>span>a').eq(num).click();
+    }
+
+
+    var contAuto = setInterval(contMv,3000)
+
+    $(document).ready(function(){
+      num=0;
+      asize=$('.camlist > li').length;
+      //console.log(asize)
+      $('.camlist div:eq(0)').show()
+      // camlist에 있는 div중 첫번째꺼만 보여줘
+
+      $('.camlist').mouseenter(function(){
+        clearInterval(contAuto)
+      })
+
+      $('.camlist').mouseleave(function(){
+        contAuto=setInterval(contMv,3000)
+      })
+
+      $('.camlist>li>span>a').on('click',function(e){
+        e.preventDefault();
+        num=$(this).parent().parent().index()
+        if($(this).parent().next().css('display')=="none"){
+
+          $('.camlist div').stop().slideUp();
+          $(this).parent().next().stop().slideDown('normal')
+
+        }
+
+
+        $('.camlist>li>span>a>img').each(function(){
+          $(this).attr('src',$(this).attr('src').replace('_over.gif', '.gif'))
+        })
+
+        var mybtn=$(this).children('img')
+        mybtn.attr('src',mybtn.attr('src').replace('.gif', '_over.gif'))
+        // a안의 자식 이미지를 찾아서
+      })
+    })
+  </script>
+</head>
+<body>
+<!--  지난 주에 한 것
+  show, hidden, toggle, addclass, removeclass, toggleClass, fadein, fadeout, fadetoggle,  slideup, slidedown, slidetoggle
+  remove, html, val, text, clone, append, before, prepend, after, next, prev, parent, parents, find, not, eq, index, frist-child,
+  first, last, last-child, fadeto,propm attr
+-->
+<!-- is() : 상태 확인 메서드(현재의 상태를 확인), hasclass()  : , animate(properties, duration, callback): 사용자가 원하는 형태로 애니메이션 효과를 적용시킴 -->
+<!-- setInterval, setTimeout, clearInterval, clearTimeout -->
+  <div class="sub_menu_wrap">
+    <h3><img src="../ex40/campaign_tit.gif" alt=""></h3>
+    <ul class="camlist">
+      <li class="">
+        <span><a href=""><img src="../ex40/cam01_over.gif" alt=""></a></span>
+        <div>
+          <a href="">
+            <img src="../ex40/camcont01.gif" alt="">
+          </a>
+        </div>
+      </li>
+      
+      <li class="">
+        <span><a href=""><img src="../ex40/cam02.gif" alt=""></a></span>
+        <div>
+          <a href="">
+            <img src="../ex40/camcont02.gif" alt="">
+          </a>
+        </div>
+      </li>
+
+      <li class="">
+        <span><a href=""><img src="../ex40/cam03.gif" alt=""></a></span>
+        <div>
+          <a href="">
+            <img src="../ex40/camcont03.gif" alt="">
+          </a>
+        </div>
+      </li>
+
+      <li class="">
+        <span><a href=""><img src="../ex40/cam04.gif" alt=""></a></span>
+        <div>
+          <a href="">
+            <img src="../ex40/camcont04.gif" alt="">
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

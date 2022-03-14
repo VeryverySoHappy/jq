@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.btn1').on('click',function(e){
+        // e= element의 약자
+        e.preventDefault();
+        // return false라고 생각
+        $('.gallery > img').prop({
+          src:"../ex2/main1.jpg"
+        })
+      })
+      
+      $('.btn2').on('click',function(e){
+        e.preventDefault();
+        $('.gallery > img').prop({
+          src:"../ex2/main2.jpg"
+        })
+      })
+
+      $('.btn3').on('click',function(e){
+        e.preventDefault();
+        $('.gallery > img').prop({
+          src:"../ex2/main3.jpg"
+        })
+      })
+      
+      $('.btn4').on('click',function(e){
+        e.preventDefault();
+        $('.gallery > img').prop({
+          src:"../ex2/main4.jpg"
+        })
+      })
+    })
+  </script>
+  <style>
+    body, div, ul, li, a, img {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      list-style-type: none;
+      overflow: hidden;
+    }
+    a {
+      text-decoration: none;
+    }
+    img {
+      border: none;
+    }
+    .photo{
+      width: 697px;
+      height: 397px;
+      margin: 50px auto;
+      position: relative;
+    }
+    .btn_wrap {
+      overflow: hidden;
+      height: 29px;
+      position: relative;
+    }
+    .btn_wrap li {
+      float: left;
+      height: 59px;
+      width: 86px;
+    }
+    .btn_wrap li a:hover {
+      position: absolute;
+      top: -29px;
+    }
+  </style>
+</head>
+<body>
+  <!-- prop(= getAttribute)  : 선택한 태그의 속성을 반환            있는지 없는지 체크, 있으면 true, 없으면 false로 반환
+    attr(= setAttribute)  :  속성값을 확인하거나 변경, 속성을 추가    속성과 관련된 무엇인가를 할 때, 있으면 이 값이야 하고 던져주는 것-->
+  
+  <!-- 이미지를 변경할 때 둘 중 아무거나 사용하면 됌 -->
+    <div class="photo">
+      <div class="gallery">
+        <img src="../ex2/main1.jpg" alt="">
+      </div>
+      <ul class="btn_wrap">
+        <li class="btn1"><a href=""><img src="../ex2/btn1.png" alt=""></a></li>
+        <li class="btn2"><a href=""><img src="../ex2/btn2.png" alt=""></a></li>
+        <li class="btn3"><a href=""><img src="../ex2/btn3.png" alt=""></a></li>
+        <li class="btn4"><a href=""><img src="../ex2/btn4.png" alt=""></a></li>
+      </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <!-- 1버전이 가장 안정적 -->
+  <!-- 무조건 최신이 좋은 것은 아님 -->
+  <title>Document</title>
+  <style>
+    body, div, form, fieldset, label, legend, ul, li, p, select, input, h3, a, img {
+      margin: 0;
+      padding: 0;
+    }
+    body, select, input {
+      font-size: 12px;
+      color: #222;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+    }
+    ul {
+      list-style: none;
+    }
+    select,
+    input {
+      vertical-align: middle;
+    }
+    a {
+      text-decoration: none;
+    }
+    img, fieldset {
+      border: none;
+    }
+    .relsite-wrap {
+      width: 200px;
+      background-color: #f9f9f9;
+      margin: 50px auto;
+      border: 1px solid #d9d9d9;
+      padding: 10px;
+    }
+    legend {
+      width: 1px;
+      height: 1px;
+      display: inline-block;
+      text-indent: -9999em;
+      line-height: 0;
+    }
+    select {
+      width: 160px;
+      height: 19px;
+    }
+    .box{
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      background-color: #07c;
+    }
+  </style>
+  <script>
+    $(document).ready(function(){
+      $('.btn1').on('click',function(){
+        $('.box').animate({
+          width:'500px'
+        })
+      })
+      $('.btn2').on('click',function(){
+        $('.box').animate({
+          width:'100px'
+        })
+      })
+    })
+  </script>
+</head>
+<body>
+<!--  지난 주에 한 것
+  show, hidden, toggle, addclass, removeclass, toggleClass, fadein, fadeout, fadetoggle,  slideup, slidedown, slidetoggle
+  remove, html, val, text, clone, append, before, prepend, after, next, prev, parent, parents, find, not, eq, index, frist-child,
+  first, last, last-child, fadeto
+-->
+<!-- is() : 상태 확인 메서드(현재의 상태를 확인), hasclass()  : , animate(properties, duration, callback): 사용자가 원하는 형태로 애니메이션 효과를 적용시킴 -->
+<button class="btn1">width</button>
+<button class="btn1">reset</button>
+<div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <!-- 1버전이 가장 안정적 -->
+  <!-- 무조건 최신이 좋은 것은 아님 -->
+  <title>Document</title>
+  <style>
+    body, div, form, fieldset, label, legend, ul, li, p, select, input, h3, a, img {
+      margin: 0;
+      padding: 0;
+    }
+    body, select, input {
+      font-size: 12px;
+      color: #222;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+    }
+    ul {
+      list-style: none;
+    }
+    select,
+    input {
+      vertical-align: middle;
+    }
+    a {
+      text-decoration: none;
+    }
+    img, fieldset {
+      border: none;
+    }
+    .relsite-wrap {
+      width: 200px;
+      background-color: #f9f9f9;
+      margin: 50px auto;
+      border: 1px solid #d9d9d9;
+      padding: 10px;
+    }
+    legend {
+      width: 1px;
+      height: 1px;
+      display: inline-block;
+      text-indent: -9999em;
+      line-height: 0;
+    }
+    select {
+      width: 160px;
+      height: 19px;
+    }
+  </style>
+  <script>
+    // $(document).ready(function(){
+    //   $('form[name=rel_f]').submit(function(){
+    //     var url=$("select",this).val();
+    //     window.open(url);
+    //     // 새로운 브라우저를 열어서 url에 할당된 주소의 사이트를 열겟다.
+    //     return false;
+    //   })
+    // })
+  </script>
+</head>
+<body>
+<!--  지난 주에 한 것
+  show, hidden, toggle, addclass, removeclass, toggleClass, fadein, fadeout, fadetoggle,  slideup, slidedown, slidetoggle
+  remove, html, val, text, clone, append, before, prepend, after, next, prev, parent, parents, find, not, eq, index, frist-child,
+  first, last, last-child, fadeto,propm attr
+-->
+<!-- is() : 상태 확인 메서드(현재의 상태를 확인), hasclass()  : , animate(properties, duration, callback): 사용자가 원하는 형태로 애니메이션 효과를 적용시킴 -->
+<!-- setInterval, setTimeout, clearInterval, clearTimeout -->
+  <div class="relsite-wrap">
+    <form action="" name="rel_f">
+      <fieldset>
+        <!-- 선택, 필수x, 거의 안 씀, 작업자 선택사항 , 면접볼 때 왜 넣었는지 업체에 명확히 알려줄 수 있으면 됌-->
+        <!-- 관련 요소들을 그룹화 (div를 사용해도 됌)-->
+        <!-- 여러개 사용해도됌-->
+        <legend>관련 사이트 이동</legend>
+        <!-- fieldst의 제목 // 둘다 fieldst을 사용하면 legend를 필수로 사용해야됌-->
+        <h3><img src="../ex131415/rel_site_title.gif" alt=""></h3>
+        <select name="re_select" id="">
+          <option value="https://www.nl.go.kr/">국립중앙도서관</option>
+          <option value="https://www.nanet.go.kr/main.do">국회도서관</option>
+          <option value="https://www.nl.go.kr/">전자도서관</option>
+        </select>
+        <input type="image" src="../ex131415/btn_quickGo.gif" title="사이트바로가기" alt="go">
+      </fieldset>
+    </form>
+  </div>
+</body>
+</html>
