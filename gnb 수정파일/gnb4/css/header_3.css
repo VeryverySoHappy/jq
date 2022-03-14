@@ -160,7 +160,7 @@ caption {
 }
 
 .subbg {
-    /* border-bottom: 1px solid #d6d6d6; */
+    border-top: 1px solid #d6d6d6;
     position: absolute;
     top: 110px;
     left: 0;

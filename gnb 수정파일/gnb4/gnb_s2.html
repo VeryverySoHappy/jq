@@ -14,7 +14,53 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <script language="javascript" type="text/javascript">
-        
+        $(document).ready(function(){
+            var bg=$('<div class="subbg"></div>')
+            $('#gnb').after(bg)
+            // <div id="gnb">
+            //     <div class="subbg"></div>
+
+            $('#gnb > ul > li > a').on({
+                // 1차 메뉴
+                mouseenter:function(){
+                    $(this).css('color','#f60')
+                    // 1차 메뉴 색 변경
+                    $('.subMenu').stop().slideDown()
+                    // 스탑을 시킨 후에 슬라이드 다운해서 보여줘
+                    // 2차 메뉴를 아래로 내려서 보여줘
+                    // $('#gnb').css('border-bottom','1px solid #d8d8d8')
+                    // 2차 메뉴 아래에 선 그어줌
+                    $('#gnb').css('background','skyblue')
+                },
+                mouseleave:function(){
+                    $(this).css('color','#333')
+                    // 1차 메뉴 색 다시 돌아감
+                    $('.subMenu').stop().slideUp()
+                    // $('#gnb').css('border-bottom','none')
+                    // 2차 메뉴 아래에 선 없앰
+                    $('#gnb').css('background','none')
+                }
+            })
+            // 1차 메뉴에 마우스를 올리고 내렷을 때 end
+            // 2차 메뉴에 마우스를 올리고 내렷을 때 start
+            $('.subMenu').on({
+                mouseenter:function(){
+                    $('.subMenu').stop().slideDown()
+                    // $('#gnb').css('border-bottom','1px solid #d8d8d8')
+                    // 2차 메뉴에 마우스 올려도 아래 선 그어줌
+
+                    $('#gnb').css('background','skyblue')
+
+                },
+                mouseleave:function(){
+                    $('.subMenu').stop().slideUp()
+                    $('#gnb').css('border-bottom','none')
+                    // 2차 메뉴에 마우스 때면 선 사라짐
+
+                    $('#gnb').css('background','none')
+                }
+            })
+        })
 
     </script>
 
