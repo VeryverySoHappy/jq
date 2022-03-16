@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <title>Document</title>
+  <style>
+    body, div, form, fieldset, label, legend, ul, li, p, select, input, h3, a, img {
+      margin: 0;
+      padding: 0;
+    }
+    body, select, input {
+      font-size: 12px;
+      color: #222;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+    }
+    ul {
+      list-style: none;
+    }
+    select,
+    input {
+      vertical-align: middle;
+    }
+    a {
+      text-decoration: none;
+    }
+    img, fieldset {
+      border: none;
+    }
+    .wrap {
+      position: relative;
+      width: 720px;
+      margin: 50px 0 0 100px;
+    }
+    .rolling {
+      position: relative;
+      width: 720px;
+      height: 340px;
+    }
+    .rolling ul {
+      width: 4000px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .rolling ul li {
+      float: left;
+      width: 720px;
+      height: 340px;
+    }
+    .btn {
+      margin-top: 10px;
+    }
+  </style>
+  <script>
+    var st;
+    $(document).ready(function(){
+      $('.btn1').on('click', function(e){
+        e.preventDefault();
+        $('ul').animate({
+          left:'-720px'
+        },1000, function(){
+          $('ul').append($('ul li:first'));
+          $('ul').css('left','0px')
+        })
+      })
+      
+      $('.btn2').on('click', function(e){
+        e.preventDefault();
+        st=setInterval(myset,1000)
+      })
+
+      $('.btn3').on('click', function(e){
+        e.preventDefault();
+        si=setTimeout(myset,3000)
+      })
+
+      $('.btn4').on('click', function(e){
+        e.preventDefault();
+        clearInterval(st)
+      })
+
+      $('.btn5').on('click', function(e){
+        e.preventDefault();
+        clearTimeout(si)
+      })
+
+      function myset(){
+        $('ul').animate({
+          left:'-720px'
+        },1000, function(){
+          $('ul').append($('ul li:first'));
+          $('ul').css('left','0px')
+        })      
+      }
+    })
+  </script>
+</head>
+<body>
+<!--  지난 주에 한 것
+  show, hidden, toggle, addclass, removeclass, toggleClass, fadein, fadeout, fadetoggle,  slideup, slidedown, slidetoggle
+  remove, html, val, text, clone, append, before, prepend, after, next, prev, parent, parents, find, not, eq, index, frist-child,
+  first, last, last-child, fadeto
+-->
+<!-- is() : 상태 확인 메서드(현재의 상태를 확인), hasclass()  : , animate(properties, duration, callback): 사용자가 원하는 형태로 애니메이션 효과를 적용시킴 -->
+  <div class="wrap">
+    <div class="rolling">
+      <ul>
+        <li><img src="../ex41/s4-1-2off.png" alt=""></li>
+        <li><img src="../ex41/s4-1-3off.png" alt=""></li>
+        <li><img src="../ex41/s4-1-4off.png" alt=""></li>
+        <li><img src="../ex41/s4-1-5off.png" alt=""></li>
+        <li><img src="../ex41/s4-1-6off.png" alt=""></li>
+      </ul>
+    </div>
+    <div class="btn">
+      <button class="btn1">animate</button>
+      <button class="btn2">setInterval</button>
+      <button class="btn3">setTimeout</button>
+      <!-- 일정 시간동안 함수를 한번만 호출 시킬거야 -->
+      <button class="btn4">clearInterval</button>
+      <button class="btn5">clearTimeout</button>
+    </div>
+  </div>
+</body>
+</html>
+
+<!-- 안다고 하면 큰일남 아는 것 -->
+<!-- 회사에서 아는 것은 구현까지 능숙하게 할 수 있는 것 -->
+<!-- 아는 것과 구현할 줄 아는 것은 다름 -->
