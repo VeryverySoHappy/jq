@@ -7,7 +7,7 @@
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
   <title>Document</title>
   <style>
-    body, div, ul, li, a, img, p {
+    body, div, ul, li, a, img, p, dl, dt, dd {
       margin: 0;
       padding: 0;
     }
@@ -22,16 +22,83 @@
       border: none;
       vertical-align: middle;
     }
+
+    .faq {
+      width: 700px;
+      margin: 50px auto;
+    }
+    h3 {font-size: 16px;}
+    p {
+      border: 1px solid #d9d9d9;
+      padding: 10px;
+      margin: 20px auto;
+      font-size: 12px;
+    }
+    .faqList {
+      border-top: 1px solid #c3c3c3;
+    }
+    dt {
+      padding: 10px 0 10px 15px;
+      border-bottom: 1px solid #c3c3c3;
+      font-weight: 700;
+      cursor: pointer;
+      background: url(../ex27/arrow-sprite.png) no-repeat 5px 16px #f1f1f1;
+      font-size: 12px;
+    }
+    dt.open {background-position: 5px -43px;}
+    dt:hover {background-position: 5px -14px;}
+    dt.open:hover {background-position: 5px -67px;}
+    dd {
+      padding: 10px 0 10px 20px;
+      background-color: #fff;
+      line-height: 2;
+      border-bottom: 1px solid #c3c3c3;
+      font-size: 12px;
+    }
   </style>
   <script>
     $(document).ready(function(){
-
+      $('dd:not(:eq(0))').hide()
+      $('dt').on('click', function(){
+        $(this).toggleClass('open').next().slideToggle()
+      })
     })
   </script>
 </head>
 <body>
   <div class="subMenu">
-    
+    <h3>FAQ(자주 묻는 질문)</h3>
+    <p>자주 질문하시는 민원 사항을 정리하여, 원하시는 정보를 해당페이지에서 빠르게 찾으실 수 있습니다. 별도의 로그인 없이
+      원하는 정보를 이용하실 수 있으며 첨부파일 또한 다운로드 할 수 있습니다.
+    </p>
+    <dl class="faqList">
+      <dt class="open">	아파트지구란 무엇이고, 건축규제는 어떻게 되나요?</dt>
+      <dd>
+        아파트지구는 아파트의 집단적인 건설의 필요성으로 인해 과거 도시계획법에서 지정된 용도지구이며,
+        주택용지, 주구중심, 분구중심, 주택용지 등에 따라 입지할수 있는 용도가 나누어져 있습니다.
+        서울시 도시계획 조례와는 별도의 용적률, 용도제한 내용을 담고 있사오니 아래 첨부파일 6. 건축규제계획을 참고하시기 바랍니다.
+      </dd>
+      <dt class="open">전입신고는 어떻게 하나요?</dt>
+      <dd>
+        ○ 신청시기 : 신거주지에 전입한 날부터 14일 이내에 신고
+        ○ 신청장소 : 신거주지 관할 읍·면·동주민센터
+        ○ 신고의무자
+        - 거주자 : 세대주(새로운 거주지의 세대주), 세대를 관리하는 자, 본인
+      </dd>
+      <dt class="open">	아파트지구란 무엇이고, 건축규제는 어떻게 되나요?</dt>
+      <dd>
+        아파트지구는 아파트의 집단적인 건설의 필요성으로 인해 과거 도시계획법에서 지정된 용도지구이며,
+        주택용지, 주구중심, 분구중심, 주택용지 등에 따라 입지할수 있는 용도가 나누어져 있습니다.
+        서울시 도시계획 조례와는 별도의 용적률, 용도제한 내용을 담고 있사오니 아래 첨부파일 6. 건축규제계획을 참고하시기 바랍니다.
+      </dd>
+      <dt class="open">전입신고는 어떻게 하나요?</dt>
+      <dd>
+        ○ 신청시기 : 신거주지에 전입한 날부터 14일 이내에 신고
+        ○ 신청장소 : 신거주지 관할 읍·면·동주민센터
+        ○ 신고의무자
+        - 거주자 : 세대주(새로운 거주지의 세대주), 세대를 관리하는 자, 본인
+      </dd>
+    </dl>
   </div>
 </body>
 </html> 
