@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <style>
+    div, ul, li, img {
+      margin: 0;
+      padding: 0;
+    }
+    ul{
+      list-style: none;
+      width: 900px;
+      height: 100px;
+      position: absolute;
+      top: 0;
+      left: -100px;
+      /* 하나가 옆으로 이동한 상태로 보임 */
+    }
+    img {
+      width: 100px;
+      height: 100px;
+    }
+    .listBox {
+      width: 700px;
+      height: 100px;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    li {
+      width: 100px;
+      height: 100px;
+      float: left;
+      background-color: #fff;
+      box-sizing: border-box;
+    }
+  </style>
+  <script>
+    $(document).ready(function(){
+      var position = 0;
+      var distance = -100;
+
+      $('.listBox').on({
+        'mouseenter':function(e){
+          // 마우스 올렷을 때
+          // console.log(e.pageX)
+          // 마우스를 사진에 올리면 마우스의 위치의 값이 나옴
+          position=e.pageX - $(this).offset().left;
+          // 자기자신(listBox)의 왼쪽끝이 페이지에서 떨어진 만큼의 거리
+          // 페이지에서 사진 왼쪽 끝부분 뺀 값
+
+          // 사진 왼쪽 끝 부분 = 0
+          // 사진 오른쪽 끝 부분 = 700
+        },
+        'mouseleave':function(){
+          // 마우스를 내렷을 때
+          position = 0;
+          distance = -100;
+          $('.list').animate({
+            left:distance+'px'
+            // 거리값px 
+          },600)
+        },
+        'mousemove':function(e){
+          // 마우스를 움직였을 때
+          var temp=e.pageX - $(this).offset().left;
+          // console.log('temp:'+temp)
+          // 왼쪽끝은 0 오른쪽 끝은 700
+          // 사진에서 마우스를 올려서 이동하는 값
+
+          // console.log('position:'+position)
+          // 사진 위에 올렷을 때 값,
+          // 사진 바깥에 갔다가 다시 올려야 나오는 값
+          if(temp-position>0){
+            // 음수이면 
+            // console.log(temp-position)
+
+            /*console.log('right')
+            다 양수라서 right가 나오는게 맞음*/
+            distance++;
+            if(distance>0){
+              distance=0
+            }
+          }else {
+            distance--;
+            if(distance< -200){
+              distance= -200
+              // 최대 200까지 밖에 갈 수 없음 (아이스크림 맨 오른 쪽 사진이 다 보인 이후 왼쪽으로 이동 X)
+            }
+          }
+          $('.list').css({
+            left:distance+'px'
+          })
+          position=temp;
+        }
+      })
+    })
+  </script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="listBox">
+    <ul class="list">
+      <li><img src="/images/1452062933.png" alt=""></li>
+      <li><img src="/images/1530775682.png" alt=""></li>
+      <li><img src="/images/1530775918.png" alt=""></li>
+      <li><img src="/images/1530776851.png" alt=""></li>
+      <li><img src="/images/1530777439.png" alt=""></li>
+      <li><img src="/images/1530779443.png" alt=""></li>
+      <li><img src="/images/1651592744.png" alt=""></li>
+      <li><img src="/images/1559982007.png" alt=""></li>
+      <li><img src="/images/1623256634.png" alt=""></li>
+    </ul>
+  </div>
+</body>
+</html>

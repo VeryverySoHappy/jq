@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <style>
+    .wrap {
+      width: 800px;
+      margin: 0 auto;
+      height: 300px;
+      position: relative;
+      background-color: blanchedalmond;
+    }
+  </style>
+  <script>
+    $(document).ready(function(){
+      $(document).mousemove(function(event){
+        // console.log(event.pageX)
+        // 마우스의 X축 값
+        // console.log(event.pageX, event.pageY)
+        // 마우스의 x축 값, y축 값
+        var bodyp = event.pageX;
+        var boxleft = $('.wrap').offset().left;
+        // console.log(boxleft)
+        // 박스의 왼쪽 끝부분이 페이지 왼쪽 끝에서 얼마나 떨어져있냐
+        // console.log(bodyp - boxleft)
+        // 박스의 왼쪽 끝부분부터 시작
+
+        var w = bodyp- boxleft;
+        if(w>400){
+          // 마우스 커서가 왼쪽에 있으면
+          $('.wrap').css('background','green')
+          // 마우스 커서를 wrap의 오른쪽 부분에 있으면 초록색
+        }else {
+          $('.wrap').css('background','orange')
+          // 마우스 커서를 wrap의 왼쪽 부분에 있으면 오렌지색
+
+        }
+      })
+    })
+  </script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrap">
+    wrapper
+  </div>
+</body>
+</html>
